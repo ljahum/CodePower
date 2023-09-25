@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>CV - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+</head>
+
+<body>
+    <!-- 标头 -->
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+        <div class="container">
+            <a class="navbar-brand logo" href="/">加密</a>
+            <a class="navbar-brand logo" href="/dec">解密</a>
+            <a class="navbar-brand logo" href="/random">给我一个随机数</a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"></li>
+                </ul>
+            </div>
+            <img class="round_icon" src="assets/img/avatars/avatar.jpg">
+        </div>
+    </nav>
+    <!-- 输出评论 -->
+    <main class="page cv-page">
+        <section class="portfolio-block cv">
+        
+            <form method="dialog" id="msgform">
+                <h2 class="text-center">Send a msg to enc</h2>
+
+<!--                <div class="form-group"><textarea class="form-control" name="message" id= "message" placeholder="Message(in hex)<128" rows="5"></textarea></div>-->
+                <div class="form-group"><textarea class="form-control" name="message" id= "message" placeholder="Message(in hex)<128" rows="5">{{.randomstr}}</textarea></div>
+                <input type="checkbox" id="inhex" name="inhex" value="hex">in hex<br>
+
+                <div class="form-group">
+                    <button class="btn btn-primary"  name="btn_add1" type="submit">encrypto</button>
+                </div>
+                <h2 class="text-center">FEED BACK</h2>
+                {{ .cipher }}
+            </form>
+
+        </section>
+    </main>
+
+
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <p class="copyright">Company Name © 2021 （；´д｀）ゞ</p>
+            </div>
+        </footer>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+
+    <script>
+
+        $(document).ready(function() {
+            $("button").click(function () {
+                var data = $("#msgform").serialize();
+                $.ajax({
+
+                    url: "/",
+                    type: "post",
+                    dataType: "json",
+                    data: data,
+                    success: function (data) {
+                        if(data.check == "true"){
+                            alert(data["msg"])
+                            window.location.href = "/?cipher="+data["enc"];
+                        }else{
+                            alert(data["msg"])
+                        }
+                    }
+
+                });
+            });
+            
+        });
+            
+        
+    </script>
+    </head>
+
+
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "*.sage": "python",
+        "*.wxml": "html",
+        "*.toml": "ini",
+        "cstdarg": "cpp",
+        "cstdio": "cpp",
+        "ostream": "cpp",
+        "*.tcc": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "typeinfo": "cpp",
+        "random": "cpp",
+        "unistd.h": "c"
+    }
+}
