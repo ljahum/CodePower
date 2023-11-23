@@ -27,6 +27,7 @@ var UP = websocket.Upgrader{
 var SessionKeyList map[string][]byte
 var PubKeyList map[string]*rsa.PublicKey
 
+// myPow计算M的E次方模N的余数
 func myPow(M *big.Int, E *big.Int, N *big.Int) *big.Int {
 	var c big.Int
 	c.Exp(M, E, N)

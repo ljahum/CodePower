@@ -1,7 +1,7 @@
 use std::env;
-use std::error::Error;
+
 use std::process;
-use std::fs;
+
 use minigrep::Config;
 
 fn main() {
