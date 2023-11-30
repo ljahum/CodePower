@@ -1,0 +1,6 @@
+{"defaults": 
+        {
+            // "startingDirectory": "C:\\Users\\test_user\\Desktop"
+            "startingDirectory": "." //在当前目录打开
+
+        }}
