@@ -8,7 +8,7 @@ function Check-IsElevated
    { Write-Output $false }
 }
 
-# theme部分美容无法加载的情况,选择手动的主题启动方式
+# theme start
 function op{
     # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/powerlevel10k_lean.omp.json" | Invoke-Expression
     oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/peru.omp.json" | Invoke-Expression
@@ -20,9 +20,12 @@ echo "hello world"
 echo $PROFILE
 # oh-my-posh init pwsh | Invoke-Expression
 
-$Env:http_proxy="http://127.0.0.1:10809";$Env:https_proxy="http://127.0.0.1:10809"
-
-
+function clash{
+echo "clash proxy on"
+$Env:http_proxy="http://127.0.0.1:7890";
+$Env:https_proxy="http://127.0.0.1:7890"
+   
+}
 
 
 
@@ -34,7 +37,6 @@ if (-not(Check-IsElevated))
 {
     echo "[#]"
     echo "[+] not Administrator"
-    echo "[+] loading beauty?"
     
     # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/1_shell.omp.json" | Invoke-Expression
     # 1_shell.omp.json
@@ -55,6 +57,9 @@ Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
 Set-PSReadLineOption -PredictionViewStyle ListView
 
 
-Set-Alias ls lsd
+Set-Alias ls lsd 
+function ll{
+    lsd -l
+}
 
 
