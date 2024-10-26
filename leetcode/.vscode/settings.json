@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "*.sage": "python",
+        "*.wxml": "html",
+        "*.toml": "toml",
+        "*.idc": "c",
+        "*.md": "markdown",
+        "vector": "cpp",
+        "limits": "cpp",
+        "algorithm": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "xutility": "cpp",
+        "initializer_list": "cpp",
+        "ranges": "cpp",
+        "span": "cpp",
+        "xstring": "cpp"
+    }
+}
